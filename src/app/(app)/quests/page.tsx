@@ -164,7 +164,9 @@ const [levelUp, setLevelUp] = useState<{ from: number; to: number } | null>(null
         defaultValues={
   editingQuest
     ? {
-        ...editingQuest,
+        title: editingQuest.title,
+        description: editingQuest.description,
+        due_date: editingQuest.due_date,
         attribute_key: editingQuest.attribute_key as QuestInput["attribute_key"],
         difficulty: editingQuest.difficulty as QuestInput["difficulty"],
       }
