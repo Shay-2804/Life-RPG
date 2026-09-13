@@ -161,7 +161,15 @@ const [levelUp, setLevelUp] = useState<{ from: number; to: number } | null>(null
         }}
         onSubmit={handleCreateOrEdit}
         isSubmitting={isSubmitting}
-        defaultValues={editingQuest ?? undefined}
+        defaultValues={
+  editingQuest
+    ? {
+        ...editingQuest,
+        attribute_key: editingQuest.attribute_key as QuestInput["attribute_key"],
+        difficulty: editingQuest.difficulty as QuestInput["difficulty"],
+      }
+    : undefined
+}
       />
 
       <ConfirmDeleteDialog
